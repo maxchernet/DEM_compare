@@ -165,9 +165,9 @@ if __name__ == "__main__":
     # f_in_sat = '../pc_align_dem_02/dtm-trans_source-DEM.tif'
     # f_in_lidar = '/Volumes/lacie_data/satellite/Trondheim/dtm1/data/dtm1_33_124_141.tif'
 
-    f_out_lidar = dir_data + f_in_lidar.split('.')[0] + '_resized.tif'
+    f_out_lidar = f_in_lidar.split('.')[0] + '_resized.tif'
 
-    f_lidar_warped = f_in_lidar.split('/')[-1].split('.')[0] + "warped.tif"
+    f_lidar_warped = f_in_lidar.split('/')[-1].split('.')[0] + "_warped.tif"
 
     # Get satellite and LIDAR geo-projections and images
     sat_srs, sat_img = open_geo_file(f_in_sat)
@@ -184,7 +184,7 @@ if __name__ == "__main__":
     sp.check_output(com_str, shell=True)
 
     # Stack two images together
-    gdal_merge(f_in_sat, f_in_lidar, f_out_lidar)
+    gdal_merge(f_in_sat, dir_data + f_lidar_warped, f_out_lidar)
 
     if os.path.isfile(f_out_lidar) == False:
         print('File %s does not exist')
