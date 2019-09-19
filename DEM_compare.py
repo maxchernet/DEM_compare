@@ -44,7 +44,7 @@ def open_geo_file(in_file):
         gds = gdal.Open(in_file)
         srs = gds.GetProjection()
         print('Raster size: %d X %d' % (gds.RasterXSize, gds.RasterYSize))
-        print('Raster projection: %s' % sat_srs)
+        print('Raster projection: %s' % srs)
         img = gds.GetRasterBand(1).ReadAsArray()
     else:
         print "File %s does not exist" % in_file
@@ -176,7 +176,7 @@ if __name__ == "__main__":
     plt.subplot(121)
     plt.imshow(sat_img, vmin=-20, vmax=140)
     plt.subplot(122)
-    plt.imshow(lidar_img.ReadAsArray(), vmin=0, vmax=500)
+    plt.imshow(lidar_img, vmin=0, vmax=500)
     plt.savefig(dir_fig + 'orig_images.png')
 
     # Warp two images to common projection
