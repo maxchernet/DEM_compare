@@ -15,7 +15,7 @@ Input files have to be georeferenced TIFF images with Digital Elevation Models (
 Input images can have different projections, spatial resolutions and extents.
 
 Example of usage:
-python DEM_compare.py --f_in_sat ../pc_align_dem_02/dtm-trans_source-DEM.tif --f_in_lidar = /Volumes/lacie_data/satellite/Trondheim/dtm1/data/dtm1_33_124_141.tif
+python DEM_compare.py --f_in_sat data/satDEM.tif --f_in_lidar data/lidarDEM.tif
 
 """
 
